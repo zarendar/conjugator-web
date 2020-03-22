@@ -4,22 +4,23 @@
 
 <!-- User NOT logged in -->
 <ng-template #guest>
-    <h3>Howdy, GUEST</h3>
-    <p>Login to get started...</p>
-
-    <button (click)="auth.googleSignin()">
-        <i class="fa fa-google"></i> Connect Google
+    <button mat-button (click)="auth.googleSignin()">
+        Login
     </button>
-
 </ng-template>
 
 
 <!-- User logged in -->
 <ng-template #authenticated>
-    <div *ngIf="auth.user$ | async as user">
-        <h3>Howdy, {{ user.displayName }}</h3>
-        <img  [src]="user.photoURL">
-        <p>UID: {{ user.uid }}</p>
-        <button (click)="auth.signOut()">Logout</button>
-    </div>
+    <button 
+        *ngIf="auth.user$ | async as user"
+        class="user-profile-menu-toggle"
+        mat-button
+        [matMenuTriggerFor]="menu"
+    >
+        <img alt="User Avatar" class="user-profile-avatar" [src]="user.photoURL">
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="auth.signOut()">Logout</button>
+    </mat-menu>
 </ng-template>

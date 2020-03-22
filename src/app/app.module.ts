@@ -1,15 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth.guard';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { TestComponent } from './components/test/test.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const config = {
   apiKey: "AIzaSyDzmrIeZv1WIgHuHyYP2x1z10WyxqJY-HM",
@@ -35,6 +38,9 @@ const config = {
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
