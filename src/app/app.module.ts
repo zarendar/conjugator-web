@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './auth.guard';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { TestComponent } from './components/test/test.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const config = {
   apiKey: "AIzaSyDzmrIeZv1WIgHuHyYP2x1z10WyxqJY-HM",
@@ -33,6 +34,7 @@ const config = {
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    BrowserAnimationsModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
